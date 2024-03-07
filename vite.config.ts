@@ -5,9 +5,13 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  server: {
+    https: {
+      cert: './certificates/cert.crt',
+      key: './certificates/cert.key'
+    }
+  },
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
